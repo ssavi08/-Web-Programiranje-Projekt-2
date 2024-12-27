@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    background-color: #2ea043;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    color: white;
+}
+
+.header .title h1 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin: 0;
+}
+
+.header .title p {
+    font-size: 16px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a, span {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+#cart-icon img {
+    width: 32px;
+    height: auto;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+
+#cart-drawer {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 400px;
+    height: 100%;
+    background: rgb(227, 227, 227);
+    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    
+}
+
+#cart-drawer.open {
+    transform: translateX(0);
+}
+
+#cart-drawer .cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#cart-drawer .cart-header button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+#cart-items {
+    margin: 20px 0;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    background: #007a06;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    color: rgba(0, 0, 0, 0.2);
+}
+
+.cart-item button {
+    background: #009a08;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#cart-total {
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+#cart-total strong,
+#cart-total span {
+    color: #000000;
+}
+
+@keyframes basket-pop {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.6);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+#cart-icon {
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+#cart-icon.pop {
+    animation: basket-pop 0.3s ease-in-out;
+}
